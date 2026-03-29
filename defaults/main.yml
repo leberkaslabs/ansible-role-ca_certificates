@@ -1,0 +1,8 @@
+---
+# List of trusted Certificate Authority (CA) certificates.
+# Each certificate should include a unique name and its full PEM content.
+ca_certificates_trusted: []
+  # - name: github.com.crt
+  #   content: |
+  #     -----BEGIN CERTIFICATE-----
+  #     -----END CERTIFICATE-----

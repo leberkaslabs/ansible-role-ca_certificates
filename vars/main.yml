@@ -1,0 +1,12 @@
+---
+_ca_certificates_path:
+  Debian: /usr/local/share/ca-certificates
+  RedHat: /etc/pki/ca-trust/source/anchors
+ca_certificates_path: >-
+  {{ _ca_certificates_path[ansible_facts.os_family] | default(_ca_certificates_path['default']) }}
+
+_ca_certificates_handler:
+  Debian: /usr/sbin/update-ca-certificates
+  RedHat: /usr/bin/update-ca-trust extract
+ca_certificates_handler: >-
+  {{ _ca_certificates_handler[ansible_facts.os_family] | default(_ca_certificates_handler['default']) }}

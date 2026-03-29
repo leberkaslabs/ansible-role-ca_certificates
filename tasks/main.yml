@@ -1,0 +1,17 @@
+---
+- name: Install ca-certificates package
+  ansible.builtin.package:
+    name: ca-certificates
+    state: present
+
+- name: Manage trusted CA certificates
+  ansible.builtin.copy:
+    content: "{{ item.content }}"
+    dest: "{{ ca_certificates_path ~ '/' ~ item.name | ansible.builtin.regex_replace('\\.[^.]+$', '.crt') }}"
+    owner: root
+    group: root
+    mode: "0644"
+  notify: update certificates
+  loop: "{{ ca_certificates_trusted }}"
+  loop_control:
+    label: "{{ ca_certificates_path ~ '/' ~ item.name | ansible.builtin.regex_replace('\\.[^.]+$', '.crt') }}"

@@ -1,0 +1,12 @@
+---
+argument_specs:
+  main:
+    author: Niclas Spreng
+    description: Install CA certificates on linux systems.
+    short_description: ca_certificates
+    options:
+      ca_certificates_trusted:
+        description: List of trusted Certificate Authority (CA) certificates.
+        elements: str
+        required: false
+        type: list
