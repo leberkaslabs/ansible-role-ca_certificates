@@ -1,5 +1,5 @@
 ---
-- name: Update CA trusted
+- name: Update trusted CA certificates
   ansible.builtin.command:
     cmd: "{{ ca_certificates_handler }}"
   changed_when: true
